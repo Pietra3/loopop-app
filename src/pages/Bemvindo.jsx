@@ -1,5 +1,5 @@
 import React from 'react';
-import logoLoopop from '../assets/Logo.svg';
+import logoLoopop from '../assets/logo.svg';
 import { useNavigate } from 'react-router-dom';
 export default function Bemvindo() {
   const navigate = useNavigate();
