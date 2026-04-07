@@ -9,7 +9,9 @@
   --font-headline: "Plus Jakarta Sans", sans-serif;
   --font-body: "Manrope", sans-serif;
 }
-
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 .material-symbols-outlined {
   font-family: 'Material Symbols Outlined';

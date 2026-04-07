@@ -1,8 +1,11 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import logoLoopop from '../assets/logo.svg';
+import googlelogo from '../assets/googlelogo.png';
+import { useState } from 'react';
 export default function Login() {
   const navigate = useNavigate();
+  const [showPassword, setShowPassword] = useState(false);
 
   return (
     <div className="bg-background font-body text-on-surface min-h-screen flex items-center justify-center p-6 selection:bg-secondary-container selection:text-on-secondary-container relative overflow-hidden">
@@ -42,10 +45,9 @@ export default function Login() {
             </div>
 
             {/* Password Input */}
-            <div className="space-y-2">
-              <div className="flex justify-between items-center ml-2">
+            <div className="space-y-1">
+              <div className="flex justify-between items-center ml-1">
                 <label className="text-sm font-bold uppercase tracking-wider text-on-surface-variant" htmlFor="password">Senha</label>
-                <button className="text-sm font-bold text-secondary hover:opacity-50 transition-opacity">Esqueci minha senha</button>
               </div>
               <div className="relative">
                 <span className="absolute left-4 top-1/2 -translate-y-1/2 material-symbols-outlined text-on-surface-variant">lock</span>
@@ -53,14 +55,20 @@ export default function Login() {
                   className="w-full pl-12 pr-12 py-4 bg-white rounded-lg shadow-sm border-primary-400 focus:ring-2 focus:ring-primary/20 text-on-surface font-medium placeholder:text-outline-variant transition-all duration-300 outline-none" 
                   id="password" 
                   placeholder="••••••••" 
-                  type="password"
+                  type={showPassword ? "text" : "password"}
                 />
-                <button className="absolute right-4 top-1/2 -translate-y-1/2 material-symbols-outlined text-on-surface-variant">visibility</button>
+                <button type="button"
+      onClick={() => setShowPassword(!showPassword)}
+      className="absolute right-4 top-1/2 -translate-y-1/2 material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors cursor-pointer">
+      {showPassword ? 'visibility_off' : 'visibility'}</button>
               </div>
+              <button className="text-sm font-bold text-secondary hover:opacity-50 transition-opacity">Esqueci minha senha</button>
             </div>
 
             {/* Primary Action */}
-          <button className="gradient-primary text-white text-lg font-bold h-16 rounded-full shadow-lg flex items-center justify-center gap-2 group transition-all duration-300 hover:scale-[1.02] active:scale-95">
+          <button 
+          onClick={() => navigate('/Home')}
+          className="gradient-primary text-white text-lg font-bold h-16 rounded-full shadow-lg flex items-center justify-center gap-2 group transition-all duration-300 hover:scale-[1.02] active:scale-95">
             <span>Entrar</span>
             <span className="material-symbols-outlined text-xl transition-transform group-hover:translate-x-1">arrow_forward</span>
           </button>
@@ -73,9 +81,9 @@ export default function Login() {
             </div>
 
             {/* Social Login */}
-            <button className="w-full flex items-center justify-center gap-3 py-4 bg-surface-container-lowest border border-outline-variant/10 rounded-full text-on-surface font-bold hover:bg-white transition-colors">
-              <img alt="Google" className="w-6 h-6" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD1Ne8h94Us-sf9WuC3GNKy4apBLcxWgeo2FKAz7dZupwqW34XB32cRc75uZkibAUWOydR6iZOrmPlFBwVKGygQoOT7koHw3vEEiQiBujSJwtLdBo1uaC7eYMkLuUEProoXfcRqNPAGurhdpB6He9qNkpQ7XYNLlcwlIskPMMIUQIEvrjCdVIO8WV7o2Z1hmwg8UL25zBkb7Hdii3MbWIWP5Uatu9D_d9Hr2e4w-r5O_WGbESjs5fAgrfE65aMjsCpdU0fV8viYLfKH"/>
-              Google
+            <button className="w-full flex items-center justify-center gap-5 py-1 bg-surface-container-lowest border border-outline-variant/10 rounded-full text-on-surface font-bold hover:bg-white transition-colors">
+              <img src={googlelogo}  alt="Google" className="w-15 h-15"/>
+              Continue com o Google
             </button>
           </div>
 

@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Bemvindo from './pages/Bemvindo'; 
 import Login from './pages/Login';
+import Home from './pages/Home';
 
 export default function App() {
   return (
@@ -11,6 +12,7 @@ export default function App() {
         
         {/* A próxima tela onde o usuário digita e-mail/senha */}
         <Route path="/login" element={<Login />} />
+        <Route path="/home" element={<Home />} />
       </Routes>
     </BrowserRouter>
   );
